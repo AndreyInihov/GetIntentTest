@@ -1,0 +1,11 @@
+.currency-container {
+    height: 50px;
+}
+
+.currency-date {
+    font-weight:800;
+}
+
+.currency-value {
+    margin-left:15px;
+}

@@ -11,6 +11,14 @@
 |
 */
 
+Route::any('/fix-rates', [
+    'uses' => 'UpdateRatesController@fixExchangeRates'
+]);
+
+Route::any('/get-currencies', [
+    'uses' => 'MainController@getCurrencies'
+]);
+
 Route::any('/', [
     'uses' => 'MainController@showCurrencies'
 ]);

@@ -156,6 +156,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Exchange Rate Providers
+         */
+        App\Providers\CBExchangeRateProvider::class,
+        App\Providers\ExchangeRateProviderHelper::class,
+        App\Providers\YahooExchangeRateProvider::class,
+
     ],
 
     /*
