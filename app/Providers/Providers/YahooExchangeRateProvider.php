@@ -32,9 +32,19 @@ class YahooExchangeRateProvider extends ExchangeRateProviderHelper implements Ex
             'base_uri' => self::BASE_URL,
         ]);
 
+        $currenciesString = '';
+
+        foreach($currencies as $currency) {
+            $currenciesString .= $currrency . 'RUB,';
+        }
+
+        if(strlen($currenciesString) > 0) {
+            $currenciesString = substr($currenciesString, 0, strlen($currenciesString)-1);
+        }
+
         $response = $client->request(self::REQUEST_TYPE, self::API_FUNC, array(
                 'query' => array(
-                    'q' => 'select * from yahoo.finance.xchange where pair = "USDRUB,EURRUB"',
+                    'q' => 'select * from yahoo.finance.xchange where pair = "{' . $currenciesString . '}"',
                     'format' => 'json',
                     'env' => 'store://datatables.org/alltableswithkeys',
                 ),
